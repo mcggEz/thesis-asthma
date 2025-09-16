@@ -1,12 +1,10 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Area, AreaChart, CartesianGrid, Legend, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts'
-import { useAuth } from '../services/auth/AuthContext'
 import { useSensorStream } from '../services/data/useSensorStream'
 
 type Sample = { t: number; spo2: number; respRate: number; pm25: number }
 
 export default function Dashboard() {
-  const { user, signOut } = useAuth()
   const { latest, risk, connected, connect, disconnect } = useSensorStream()
   const [history, setHistory] = useState<Sample[]>([])
 
