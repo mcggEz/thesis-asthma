@@ -1,1 +1,26 @@
 @import "tailwindcss";
+
+@keyframes breathPulse {
+  0%, 100% { transform: scale(0.95); opacity: .35; }
+  50% { transform: scale(1.05); opacity: .6; }
+}
+
+.breath-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(60px);
+  animation: breathPulse 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Tiny utility for delayed animation when needed */
+.animation-delay-3000 { animation-delay: 3s; }
+
+/* Full-page breathing background container */
+.breath-bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
